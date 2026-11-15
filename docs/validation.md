@@ -1,4 +1,30 @@
-# Ellenőrzési eredmények – DupliScope 0.1
+# Ellenőrzési eredmények
+
+## DupliScope 0.2 – felületi finomítások
+
+Ellenőrzési környezet: Linux x64, .NET SDK 8.0.428, Windows x64 keresztfordítás.
+
+- Debug és Release: sikeres, egyenként 0 hiba és 0 figyelmeztetés.
+- Meglévő navigációs, állapotmegőrzési és erőforráspróbák: 14/14 sikeres.
+- XAML statikus ellenőrzése: maximalizált indulás, szokásos visszaállítható
+  Windows-ablakkeret; a két elsődleges gombban nincs kép; a Tovább korábbi
+  tartalommagassága megmaradt; a második út mezőfelirata pontosan „Elérési út”.
+- A fejléc a ViewModel `ApplicationVersion` értékéhez kötött, amely a
+  projekt `Version` mezőjéből generált assembly-verzió első két tagját mutatja.
+  Mindkét build generált assembly-verziója `0.2.0.0`, így a kijelzés `0.2`.
+- Mind a nyolc meglévő ikonállomány byte-ra változatlan a 0.1-es commithoz képest.
+  A Tovább gomb ikonhivatkozása eltűnt; a többi ikonhivatkozás változatlan.
+- A 10 megmaradt helyi XAML-erőforráshivatkozás és mindkét EXE hétméretű
+  natív ikonja, DPI/long-path manifestje és licenc-/SVG-másolatai ellenőrizve.
+- `git diff --check`: sikeres.
+
+A felület tényleges megjelenése, a tálca láthatósága, a maximalizált indulás és
+a normál méretre visszaállítás **Windows alatt még nincs futtatással ellenőrizve**.
+A szabványos WPF `WindowState="Maximized"` beállítást használjuk; nincs keret
+nélküli vagy exkluzív teljes képernyős mód. A kézi Windows-ellenőrzőlista továbbra
+is a [korlátok dokumentumában](known-limitations.md) található.
+
+## DupliScope 0.1 – korábbi ellenőrzések
 
 Dátum: 2026-11-15. Környezet: Debian 13 Linux x64, .NET SDK 8.0.428,
 Windows Desktop reference pack, Windows x64 keresztfordítás.
@@ -19,7 +45,7 @@ A reprodukálható parancsok a [README](../README.md) ellenőrzési részében t
 | Ikonkatalógus | Elkészült, vizuálisan ellenőrizve | Ténylegesen használt hat PNG, nagy és 16/24/32-es mintákkal; nem alkalmazás-képernyőkép |
 | Git whitespace / kimenetek | `git diff --check` sikeres; buildfájlok ignoráltak | A változtatási lista nem tartalmaz bin/obj vagy más generált fordítási kimenetet |
 
-## A 12 viselkedési próba
+### A 12 viselkedési próba
 
 1. Kezdő mód, a három kapcsoló alapértéke, parancsok kezdeti állapota.
 2. Kizáró módválasztás és a rádiógombokhoz szükséges property értesítések.

@@ -52,6 +52,8 @@ public sealed class MainViewModel : ObservableObject
         get => SelectedMode == SearchMode.TwoLocations;
         set { if (value) SelectedMode = SearchMode.TwoLocations; }
     }
+    // The project Version is the single source for the assembly and the UI badge.
+    public string ApplicationVersion => typeof(MainViewModel).Assembly.GetName().Version?.ToString(2) ?? string.Empty;
     public bool IsWelcomeScreen => isWelcomeScreen;
     public bool IsLocationScreen => !isWelcomeScreen;
     public string SelectedModeTitle => IsSingleLocation ? "Keresés egy helyen belül" : "Keresés két hely között";

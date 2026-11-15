@@ -1,9 +1,14 @@
-# DupliScope 0.1
+# DupliScope 0.2
 
 Magyar nyelvű, .NET 8 / WPF Windows-alkalmazás duplikált fájlok későbbi
-kereséséhez és kezeléséhez. A 0.1-es változat a kezdőképernyőt, a keresési
+kereséséhez és kezeléséhez. A 0.2-es változat a kezdőképernyőt, a keresési
 beállításokat, a helyválasztást és az egy ablakon belüli navigációt valósítja meg.
 **Fájlokat még nem keres, nem hasonlít össze és nem módosít.**
+
+A 0.2-es verzió maximalizált, natív Windows-ablakban indul, amely normál méretre
+visszaállítható. Az elsődleges kék gombok csak szöveget tartalmaznak; a második
+hely mezőfelirata „Elérési út”. A fejléc verziószáma a projektfájl `Version`
+értékéből származik, így a következő verzióváltásnak egyetlen forrása van.
 
 ## Használat
 

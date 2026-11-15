@@ -65,7 +65,8 @@ Nincs előre legyártott, üres keresőszolgáltatás vagy felesleges DI-kontén
 
 ## Megjelenítés és erőforrások
 
-Natív Windows-ablakkeret, legfeljebb 1040×820 logikai képpontos induló méret,
+Natív Windows-ablakkeret, maximalizált indulás (`WindowState="Maximized"`),
+legfeljebb 1040×820 logikai képpontos visszaállított méret,
 760×480 minimum (ennél kisebb asztalterületen a minimum is ahhoz igazodik),
 képernyőközépre igazítás. A fejléc/lábléc rögzített, a középső tartalom függőlegesen
 görgethető. A két kártya egyenlő szélességű, a tartalom 1120 DIP-nél nem nyúlik

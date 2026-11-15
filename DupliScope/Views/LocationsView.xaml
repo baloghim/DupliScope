@@ -31,7 +31,7 @@
                     <Image Source="/DupliScope;component/Assets/Icons/Oxylite/folder.png" Width="36" Height="36" Margin="0,0,12,0" />
                     <TextBlock Text="B hely" FontSize="18" FontWeight="SemiBold" VerticalAlignment="Center" />
                 </StackPanel>
-                <Label Content="Elérési út (_B)" Target="{Binding ElementName=SecondPath}" Foreground="{StaticResource MutedBrush}" Padding="0,0,0,6" />
+                <Label Content="Elérési út" Target="{Binding ElementName=SecondPath}" Foreground="{StaticResource MutedBrush}" Padding="0,0,0,6" />
                 <Grid>
                     <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
                     <TextBox x:Name="SecondPath" Style="{StaticResource PathBox}" Text="{Binding SecondLocation, Mode=OneWay, TargetNullValue='Még nincs kiválasztott hely'}"

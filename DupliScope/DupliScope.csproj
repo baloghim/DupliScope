@@ -6,6 +6,20 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Assets\Icons\App\dupliscope.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Version>0.1.0</Version>
+    <Description>Duplikált fájlok keresése és kezelése</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Icons\Oxylite\*.png" />
+    <Resource Include="Assets\Icons\App\dupliscope.png" />
+    <Resource Include="Assets\Icons\App\dupliscope.ico" />
+    <Content Include="..\licenses\Oxylite\**\*" Link="licenses\Oxylite\%(RecursiveDir)%(Filename)%(Extension)"
+             CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\docs\icon-manifest.md" Link="licenses\icon-manifest.md"
+             CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
 
 </Project>

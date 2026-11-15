@@ -1,12 +1,66 @@
-﻿<Window x:Class="DupliScope.MainWindow"
+<Window x:Class="DupliScope.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DupliScope"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:views="clr-namespace:DupliScope.Views"
+        Title="DupliScope" Icon="Assets/Icons/App/dupliscope.ico"
+        Width="1040" Height="820" MinWidth="760" MinHeight="480"
+        WindowStartupLocation="CenterScreen" Background="#F5F7FB"
+        FontFamily="Segoe UI" FontSize="14" Language="hu-HU"
+        UseLayoutRounding="True" SnapsToDevicePixels="True" RenderOptions.BitmapScalingMode="HighQuality">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Border Background="White" BorderBrush="{StaticResource LineBrush}" BorderThickness="0,0,0,1" Padding="36,26">
+            <Grid MaxWidth="1120">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" /><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Image Source="Assets/Icons/App/dupliscope.png" Width="68" Height="68" Margin="0,0,20,0" />
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <TextBlock Text="DupliScope" FontSize="32" FontWeight="SemiBold" />
+                    <TextBlock Text="Duplikált fájlok keresése és kezelése" Foreground="{StaticResource MutedBrush}" Margin="0,4,0,0" FontSize="15" />
+                </StackPanel>
+                <Border Grid.Column="2" Background="#EFF4FA" CornerRadius="6" Padding="10,5" VerticalAlignment="Center">
+                    <TextBlock Text="0.1" Foreground="{StaticResource MutedBrush}" FontSize="12" FontWeight="SemiBold" />
+                </Border>
+            </Grid>
+        </Border>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="36,28,36,32">
+            <Grid MaxWidth="1120">
+                <views:WelcomeView Visibility="{Binding IsWelcomeScreen, Converter={StaticResource BoolToVisibility}}" />
+                <views:LocationsView Visibility="{Binding IsLocationScreen, Converter={StaticResource BoolToVisibility}}" />
+            </Grid>
+        </ScrollViewer>
+        <Border Grid.Row="2" Background="White" BorderBrush="{StaticResource LineBrush}" BorderThickness="0,1,0,0" Padding="36,18">
+            <Grid MaxWidth="1120">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Button Command="{Binding ExitCommand}" AutomationProperties.Name="Kilépés">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Assets/Icons/Oxylite/application-exit.png" Width="22" Height="22" Margin="0,0,8,0" />
+                            <AccessText Text="_Kilépés" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding BackCommand}" Margin="12,0,0,0" Visibility="{Binding IsLocationScreen, Converter={StaticResource BoolToVisibility}}" AutomationProperties.Name="Vissza">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Assets/Icons/Oxylite/go-previous.png" Width="22" Height="22" Margin="0,0,8,0" />
+                            <AccessText Text="_Vissza" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <Button HorizontalAlignment="Right" Style="{StaticResource PrimaryButton}" Command="{Binding NextCommand}"
+                        Visibility="{Binding IsWelcomeScreen, Converter={StaticResource BoolToVisibility}}" AutomationProperties.Name="Tovább">
+                    <StackPanel Orientation="Horizontal">
+                        <AccessText Text="_Tovább" VerticalAlignment="Center" />
+                        <Image Source="Assets/Icons/Oxylite/go-next.png" Width="24" Height="24" Margin="12,0,0,0" />
+                    </StackPanel>
+                </Button>
+                <Button HorizontalAlignment="Right" Style="{StaticResource PrimaryButton}" Content="Keresés indítása" IsEnabled="False"
+                        Visibility="{Binding IsLocationScreen, Converter={StaticResource BoolToVisibility}}"
+                        ToolTip="A keresés egy későbbi verzióban lesz elérhető." AutomationProperties.Name="Keresés indítása – még nem elérhető" />
+            </Grid>
+        </Border>
     </Grid>
 </Window>

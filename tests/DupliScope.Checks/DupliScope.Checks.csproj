@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../DupliScope/Models/*.cs" Link="Models/%(Filename)%(Extension)" />
+    <Compile Include="../../DupliScope/ViewModels/*.cs" Link="ViewModels/%(Filename)%(Extension)" />
+    <Compile Include="../../DupliScope/Services/IFolderPicker.cs" Link="Services/IFolderPicker.cs" />
+    <Compile Include="../../DupliScope/Services/IApplicationLifetime.cs" Link="Services/IApplicationLifetime.cs" />
+  </ItemGroup>
+</Project>
